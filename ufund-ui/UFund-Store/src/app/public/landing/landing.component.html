@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Landing</title>
+  <base href="/landing">
+  <meta name="landing" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" 
+          type="text/scss" 
+          href="landing.component.scss">
+    
+</head>
+
+
+<div class="textContent">
+  <h2> Helper Messages </h2>
+  <div class="ticker">
+    <h3>{{randomMessage.message}} -- {{randomMessage.username}}</h3>
+  </div>
+  
+</div>
+
+<div id="logincontainer">
+  <h1>Funds In High Places - Food Donation Inc.</h1>
+  <button routerLink="/loginPage">LOGIN</button>
+  <button routerLink="/CreateUser">CREATE</button>
+</div>

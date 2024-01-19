@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Admin</title>
+  <base href="/admin">
+  <meta name="Admin" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/scss" href="admin-page.component.scss">
+</head>
+
+<body>
+  <h2>Admin Cupboard</h2>
+
+  <div class="sidebar">
+    <h2>Notifications</h2>
+    <div class="notification-list">
+      <div *ngFor="let notification of notifications" class="notification-item">
+        <span>{{notification.username}} donated {{notification.quantity}} of {{notification.need}}.</span>
+      </div>
+    </div>
+  </div>  
+
+  <div id="container" [formGroup]="form">
+    <!-- Need Name input -->
+    <label for="new-need">Need name:</label>
+    <input type="text" formControlName="needName" id="new-need" #needName />
+
+    <!-- Need Cost input -->
+    <label for="new-cost">Need Cost:</label>
+    <input type="number" formControlName="needCost" id="new-cost" #needCost />
+
+    <!-- Need Type input -->
+    <label for="new-type">Need Type:</label>
+    <input type="text" formControlName="needType" id="new-type" #needType />
+
+    <!-- Need Quantity input -->
+    <label for="new-quant">Need Quantity:</label>
+    <input type="number" formControlName="needQuant" id="new-quant" #needQuant />
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(needName.value, form.value.needCost, needType.value, form.value.needQuant);
+      needName.value=''; needCost.value=''; needType.value=''; needQuant.value=''; reset(form)" [disabled]="!form.valid">
+      Add New Need
+    </button>
+  </div>
+
+  <div id="container2" [formGroup]="updateForm">
+    <!-- Need Name input -->
+    <label for="update-need">Need to update's name:</label>
+    <input type="text" formControlName="updateName" id="update-need" #updateName />
+
+    <!-- Need Cost input -->
+    <label for="update-cost">New Need Cost:</label>
+    <input type="number" formControlName="updateCost" id="update-cost" #updateCost />
+
+    <!-- Need Type input -->
+    <label for="update-type">New Need Type:</label>
+    <input type="text" formControlName="updateType" id="update-type" #updateType />
+
+    <!-- Need Quantity input -->
+    <label for="update-quant">Need Quantity:</label>
+    <input type="number" formControlName="updateQuant" id="update-quant" #updateQuant />
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="update-button" (click)="update(updateName.value, updateForm.value.updateCost, updateType.value, updateForm.value.updateQuant);
+      updateName.value=''; updateCost.value=''; updateType.value=''; updateQuant.value=''; reset(updateForm)" [disabled]="!updateForm.valid">
+      Update Need
+    </button>
+  </div>
+
+  <h2>All Needs</h2>
+  <ul class="needs-list">
+    <li *ngFor="let need of cupboardNeeds">
+      <div><span>Name:</span>{{ need.name }}</div>
+      <div><span>Cost:</span>{{ need.cost }}</div>
+      <div><span>Type:</span>{{ need.type }}</div>
+      <div><span>Quantity:</span>{{ need.quantity }}</div>
+      <button (click)="delete(need)">Delete Need</button>
+    </li>
+  </ul>
+  
+<div id="logout">
+  <button type="button" routerLink="/landing">LOG OUT</button>
+</div>
+
+</body>
+</html>

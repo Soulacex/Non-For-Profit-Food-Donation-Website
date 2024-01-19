@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+#logincontainer{
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    flex-direction: column;
+    gap: 50px;
+    h1{
+        margin: 0px;;
+        color: #ffffff;
+    }
+    button{
+        background-color: #000000;
+        color: #ffffff;
+        height: fit-content;
+        border: 0px;
+        font-size: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+}
+
+@keyframes ticker {
+    50% {
+        transform: translateX(600%);
+    }
+    50% {
+        transform: translateX(600%); 
+    }
+  }
+  
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 125px; 
+    background-color: #000; 
+    color: #fff; 
+  }
+  
+  .textContent .ticker {
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100px; 
+  }
+  
+  .textContent .ticker h3 {
+    display: inline-block;
+    animation: ticker 40s linear infinite; 
+  }  

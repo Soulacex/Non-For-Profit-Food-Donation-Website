@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Helper</title>
+  <base href="/helper">
+  <meta name="helper" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/scss" href="helper-page.component.scss">
+</head>
+
+<body>
+
+    <div class="search-bar">
+      <input id="search-input" [(ngModel)]="searchTerm" placeholder="Search For A Need...">
+      <button (click)="searchCupboardNeeds()">Search</button>
+      <button (click)="resetCupboardSearch()">Reset</button>
+    </div>
+
+<h2>All Needs</h2>
+<ul class="needs-list">
+  <li *ngFor="let need of cupboardNeeds">
+    <div><span>Name: </span>{{ need.name }}</div>
+    <div><span>Cost: </span>{{ need.cost }}</div>
+    <div><span>Type: </span>{{ need.type }}</div>
+    <div><span>Quantity: </span>{{ need.quantity }}</div>
+    <button class="add-btn" (click)="addToBasket(need)">Add to Basket</button>
+    <script src="helper-page.component.ts"></script>
+  </li>
+</ul>
+
+
+<div *ngIf="selectedNeed">
+  <h2>{{ selectedNeed.name | uppercase }} Details</h2>
+  <div><span>Name: </span>{{ selectedNeed.name }}</div>
+  <div><span>Cost: </span>{{ selectedNeed.cost }}</div>
+  <div><span>Type: </span>{{ selectedNeed.type }}</div>
+  <div><span>Quantity: </span>{{ selectedNeed.quantity }}</div>
+</div>
+
+
+<div class="funding-basket">
+  <h2>Funding Basket</h2>
+  <div class="basket-dropdown">
+    <ul class="basket-list">
+      <li *ngFor="let basketNeed of supportedNeeds">
+        <div><span>Name: </span>{{ basketNeed.need_name }}</div>
+        <div><span>Quantity: </span>{{ basketNeed.quantity }}</div>
+        <button class="remove-from-basket-btn" (click)="removeFromBasket(basketNeed);">Remove from Basket</button>
+      </li>
+    </ul>
+  </div>
+  <input id="message" placeholder="Add a message with your donation! (Optional)" #message>
+  <button class="checkout-btn" (click)="checkout(); addHelperMessage(message.value); message.value=''">Checkout</button>
+</div>
+
+<button routerLink="/landing">LOG OUT</button>
+
+
+</body>
+</html>

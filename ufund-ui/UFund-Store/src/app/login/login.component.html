@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Login</title>
+  <base href="/login">
+  <meta name="login" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" 
+          type="text/scss" 
+          href="login.component.scss">
+</head>
+
+<div id="container" [formGroup]="form">
+<h1>Login</h1>
+
+<input type="text" formControlName="username" placeholder="Username" />
+
+<button (click)="login(this.form.value.username)" [disabled]="!form.valid">Login</button>
+
+<button routerLink="/CreateUser">Create</button>
+
+<button routerLink="/landing">Return To Home</button>
+
+</div>

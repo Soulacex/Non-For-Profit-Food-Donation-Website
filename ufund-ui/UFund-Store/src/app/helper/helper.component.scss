@@ -1,0 +1,51 @@
+h1 {
+    margin-bottom: 0;
+    font-size: 2em;
+    color: #3498db; 
+    margin: 20px 0;
+    text-align: center; 
+  }
+
+  .funding-basket {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .funding-basket:hover {
+    transform: scale(1.1);
+    font-size: 28px; 
+  }
+  
+  nav a {
+    padding: 1rem;
+    text-decoration: none;
+    margin-top: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    color: #3d3d3d;
+    border-radius: 4px;
+  }
+  
+  nav a:hover {
+    color: white;
+    background-color: #42545C;
+  }
+  
+  nav a:active {
+    background-color: black;
+  }
+
+  .basket-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+  }
+  

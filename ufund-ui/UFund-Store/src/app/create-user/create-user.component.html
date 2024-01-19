@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Create</title>
+  <base href="/createUser">
+  <meta name="CreateUser" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" 
+          type="text/scss" 
+          href="create-user.component.scss">
+</head>
+
+<div id="container" [formGroup]="form">
+  <h1>Create Account!</h1>
+  
+  <input type="text" formControlName="username" placeholder="New Username" />
+  
+  <button (click)="createUser(this.form.value.username)" [disabled]="!form.valid">Create</button>
+  <button routerLink="/loginPage">Return To Login</button>
+  <button routerLink="/landing">Return To Home</button>
+  </div>
